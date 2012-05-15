@@ -1,0 +1,27 @@
+Source: nagios-plugins-openstack
+Section: net
+Priority: optional
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders: Ignace Mouzannar <mouzannar@gmail.com>
+Build-Depends: debhelper (>= 9), python (>= 2.6.6-3~)
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+
+Package: nagios-plugins-openstack
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python-keystoneclient
+XB-Python-Version: ${python:Versions}
+Description: Plugins for nagios compatible monitoring OpenStack based systems
+ This package provides various plugins for Nagios compatible monitoring
+ systems like Nagios and Icinga.
+ It contains the following plugins:
+ . 
+   * check_keystone (1.0): Check that OpenStack Identity service (Keystone)
+     works correctly by getting a token from it, and checking that services
+     have a publicURL declared.
+   * check_swift_object_servers (1.0): uses swift-recon to query all clusters
+     servers and ensure they all have the same copy of the object ring. 
+   * check_swift_dispersion (1.0): uses swift-dispersion tools to report
+     dispersion analysis and checks that all copies of objects are OK.
+   * check_swift (1.0): tries to upload, download and delete a file in a Swift
+     container to check that it works correctly.
